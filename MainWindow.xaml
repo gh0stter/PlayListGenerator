@@ -1,0 +1,23 @@
+﻿<Window x:Class="PlayListGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlayListGenerator"
+        mc:Ignorable="d"
+        Title="Play List Generator" Height="333" Width="382" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Height="315" VerticalAlignment="Top">
+        <TextBox x:Name="Path_TextBox" HorizontalAlignment="Center" Margin="0,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Label Content="Music folder path" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <RadioButton x:Name="RandomBySong_RB" Content="Random by song" HorizontalAlignment="Left" Margin="54,48,0,0" VerticalAlignment="Top" Click="RandomBySong_RB_Click"/>
+        <Label Content="Type" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.163,-0.131"/>
+        <RadioButton x:Name="RandomByAlbum_RB" Content="Random by Album" HorizontalAlignment="Left" Margin="206,48,0,0" VerticalAlignment="Top" Click="RandomByAlbum_RB_Click"/>
+        <Button Content="Select" HorizontalAlignment="Left" Margin="256,14,0,0" VerticalAlignment="Top" Height="17" Click="Browse_Button_Click"/>
+        <Button x:Name="Generate_Button" Content="Generate" HorizontalAlignment="Left" Margin="154,255,0,0" VerticalAlignment="Top" Click="Generate_Button_Click"/>
+        <Label Content="Output" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+        <ScrollViewer Height="138" Width="362" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,112,0,0">
+            <TextBlock x:Name="Output" Width="Auto" TextWrapping="Wrap" Text="{Binding Logs, Mode=OneWay}"/>
+        </ScrollViewer>
+        <ProgressBar x:Name="Progress_Bar" HorizontalAlignment="Center" Height="10" Margin="0,97,0,0" VerticalAlignment="Top" Width="362" Minimum="0" Maximum="100" Value="{Binding Percentage, Mode=OneWay}" />
+    </Grid>
+</Window>
